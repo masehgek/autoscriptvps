@@ -135,23 +135,12 @@
 
 • White Label
 
-# Buat root di VPS
-- Step 1
+# install
+- Step 1 Update
 ```
-sudo su
+apt update && apt upgrade -y && reboot
 ```
-- Step 2
-```
-cd
-```
-- Step 3
-```
-apt update && apt install wget -y && wget -qO- -O rootvps.sh https://raw.githubusercontent.com/givpn/autoscriptvps/master/rootvps.sh && bash rootvps.sh
-  
-```
-
-### Command Install
-
+- Step 2 Install
 ```
 rm -f setup.sh && sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl unzip && wget https://raw.githubusercontent.com/givpn/autoscriptvps/master/setup.sh && chmod +x setup.sh && ./setup.sh
 ```
