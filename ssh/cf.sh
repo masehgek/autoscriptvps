@@ -2,6 +2,7 @@
 #random
 ns_domain_cloudflare1() {
 apt install jq curl -y
+mkdir -p /etc/xray
 clear
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 DOMAIN=givpn.online
