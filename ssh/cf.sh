@@ -38,6 +38,6 @@ echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 echo "$SUB_DOMAIN" > /etc/xray/domain
 echo "IP=$SUB_DOMAIN" > /var/lib/akbarstorevpn/ipvps.conf
-rm -f /root/cf.sh
+rm -rf /root/cf.sh
 }
 ns_domain_cloudflare1
