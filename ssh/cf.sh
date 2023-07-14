@@ -1,6 +1,5 @@
 #!/bin/bash
 #random
-ns_domain_cloudflare1() {
 apt install jq curl -y
 mkdir -p /etc/xray
 clear
@@ -36,9 +35,8 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_DOMAIN"
-echo $SUB_DOMAIN > /root/domain
+echo "$SUB_DOMAIN" > /root/domain
 echo "$SUB_DOMAIN" > /etc/xray/domain
 echo "IP=$SUB_DOMAIN" > /var/lib/akbarstorevpn/ipvps.conf
 rm -rf /root/cf.sh
-}
-ns_domain_cloudflare1
+
