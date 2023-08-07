@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 # My Telegram : https://t.me/Akbar218
 # ==========================================
 # Color
