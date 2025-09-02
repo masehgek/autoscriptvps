@@ -26,17 +26,17 @@ chronyc sourcestats -v
 chronyc tracking -v
 date
 
-# / / Ambil Xray Core Version Terbaru
+# Ambil Xray Core Version Terbaru
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 
-# / / Installation Xray Core
+# Installation Xray Core
 xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_version/xray-linux-64.zip"
 
-# / / Make Main Directory
+# Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 
-# / / Unzip Xray Linux 64
+# Unzip Xray Linux 64
 cd `mktemp -d`
 curl -sL "$xraycore_link" -o xray.zip
 unzip -q xray.zip && rm -rf xray.zip
@@ -64,11 +64,11 @@ uuid4=$(cat /proc/sys/kernel/random/uuid)
 uuid5=$(cat /proc/sys/kernel/random/uuid)
 uuid6=$(cat /proc/sys/kernel/random/uuid)
 
-# // Certificate File
+# Certificate File
 path_crt="/etc/xray/xray.crt"
 path_key="/etc/xray/xray.key"
 
-# Buat Config Xray
+# Buat Config Xray dengan port 443 untuk vmess dan vless TLS
 cat > /etc/xray/config.json << END
 {
   "log": {
@@ -78,14 +78,13 @@ cat > /etc/xray/config.json << END
   },
   "inbounds": [
     {
-      "port": 8443,
+      "port": 443,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
             "id": "${uuid1}",
             "alterId": 0
-#xray-vmess-tls
           }
         ]
       },
@@ -117,11 +116,9 @@ cat > /etc/xray/config.json << END
       "protocol": "vmess",
       "settings": {
         "clients": [
-
           {
             "id": "${uuid2}",
             "alterId": 0
-#xray-vmess-nontls
           }
         ]
       },
@@ -149,13 +146,12 @@ cat > /etc/xray/config.json << END
       }
     },
     {
-      "port": 8443,
+      "port": 443,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
             "id": "${uuid3}"
-#xray-vless-tls
           }
         ],
         "decryption": "none"
@@ -198,7 +194,6 @@ cat > /etc/xray/config.json << END
         "clients": [
           {
             "id": "${uuid4}"
-#xray-vless-nontls
           }
         ],
         "decryption": "none"
@@ -233,7 +228,6 @@ cat > /etc/xray/config.json << END
         "clients": [
           {
             "password": "${uuid5}"
-#xray-trojan
           }
         ],
         "fallbacks": [
@@ -325,8 +319,8 @@ cat > /etc/xray/config.json << END
   "policy": {
     "levels": {
       "0": {
-        "statsUserDownlink": true,
-        "statsUserUplink": true
+        "statsUser Downlink": true,
+        "statsUser Uplink": true
       }
     },
     "system": {
@@ -337,7 +331,7 @@ cat > /etc/xray/config.json << END
 }
 END
 
-# / / Installation Xray Service
+# Installation Xray Service
 cat > /etc/systemd/system/xray.service << END
 [Unit]
 Description=Xray Service By Akbar Maulana
@@ -357,11 +351,10 @@ RestartPreventExitStatus=23
 WantedBy=multi-user.target
 END
 
-
-# // Enable & Start Service
-# Accept port Xray
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
+# Enable & Start Service
+# Terima port Xray di 443 dan 80
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT
@@ -480,7 +473,7 @@ cat > /etc/trojan-go/uuid.txt << END
 $uuid
 END
 
-# restart
+# restart iptables dan service trojan-go
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
