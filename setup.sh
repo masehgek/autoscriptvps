@@ -19,25 +19,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-akbarvpn="raw.githubusercontent.com/givpn/autoscriptvps/master/ssh"
+akbarvpn="raw.githubusercontent.com/masehgek/autoscriptvps/master/ssh"
 # Link Hosting Kalian Untuk Sstp
-akbarvpnn="raw.githubusercontent.com/givpn/autoscriptvps/master/sstp"
+akbarvpnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/sstp"
 # Link Hosting Kalian Untuk Ssr
-akbarvpnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/ssr"
+akbarvpnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-akbarvpnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/shadowsocks"
+akbarvpnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-akbarvpnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/wireguard"
+akbarvpnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/wireguard"
 # Link Hosting Kalian Untuk Xray
-akbarvpnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/xray"
+akbarvpnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/master/xray"
 # Link Hosting Kalian Untuk Ipsec
-akbarvpnnnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/ipsec"
+akbarvpnnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/ipsec"
 # Link Hosting Kalian Untuk Backup
-akbarvpnnnnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/backup"
+akbarvpnnnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/backup"
 # Link Hosting Kalian Untuk Websocket
-akbarvpnnnnnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/websocket"
+akbarvpnnnnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/websocket"
 # Link Hosting Kalian Untuk Ohp
-akbarvpnnnnnnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/ohp"
+akbarvpnnnnnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/ohp"
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
