@@ -29,7 +29,7 @@ akbarvpnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
 akbarvpnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/wireguard"
 # Link Hosting Kalian Untuk Xray
-akbarvpnnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/xray"
+akbarvpnnnnnn="raw.githubusercontent.com/masehgek/autoscriptvps/master/xray"
 # Link Hosting Kalian Untuk Ipsec
 akbarvpnnnnnnn="raw.githubusercontent.com/givpn/autoscriptvps/master/ipsec"
 # Link Hosting Kalian Untuk Backup
